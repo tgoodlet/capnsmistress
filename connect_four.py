@@ -13,13 +13,13 @@ def new_board():
 def check_vert(bools):
     v1 = bools & bools.shift(-1)  # shift up by 1
     vr = v1 & v1.shift(-2)  # shift AND map up by 2
-    return True if vr.any().any() else False
+    return vr.any().any()
 
 
 def check_horiz(bools):
     h1 = bools & bools.shift(1, axis=1)
     hr = h1 & h1.shift(2, axis=1)
-    return True if hr.any().any() else False
+    return hr.any().any()
 
 
 def check_diags(bools):
@@ -59,6 +59,8 @@ def drop(col, piece):
 
 
 if __name__ == '__main__':
+    if sys.version_info < (3,0):
+        input = raw_input
     board = new_board()
     print(board)
     player1 = input("\nPlayer 1 name: ")
@@ -68,8 +70,7 @@ if __name__ == '__main__':
 
     player = next(players)
     while True:
-        col = input("Player '{}' select column: "
-                    .format(player))
+        col = input("Player '{}' select column: ".format(player))
         try:
             drop(col, player)
             print("\n")
