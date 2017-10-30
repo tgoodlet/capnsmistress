@@ -61,15 +61,15 @@ def drop(col, piece):
 if __name__ == '__main__':
     board = new_board()
     print(board)
-    player1 = input("\nPlayer 1 name: ")
-    player2 = input("Player 2 name: ")
+    player1 = raw_input("\nPlayer 1 name: ")
+    player2 = raw_input("Player 2 name: ")
     print("\n")
     players = itertools.cycle([player1, player2])
 
     player = next(players)
     while True:
-        col = input("Player '{}' select column: "
-                    .format(player))
+        col = raw_input("Player '{}' select column: "
+                        .format(player))
         try:
             drop(col, player)
             print("\n")
