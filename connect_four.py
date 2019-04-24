@@ -59,7 +59,7 @@ def drop(col, piece):
 
 
 if __name__ == '__main__':
-    if sys.version_info < (3,0):
+    if sys.version_info < (3, 0):
         input = raw_input
     board = new_board()
     print(board)
